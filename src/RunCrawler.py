@@ -5,6 +5,7 @@ from selenium.webdriver.support import expected_conditions as EC
 import time
 from selenium.webdriver.chrome.options import Options
 
+
 def download_emendas(
     url='https://paineis.cidadania.gov.br/public/extensions/RFF/emendas.html',
     button_id='btn_export',
@@ -35,6 +36,7 @@ def download_emendas(
     try:
         # Navegar para a página
         driver.get(url)
+        print("Inicializando o Crawler")
 
         # Esperar a página carregar
         WebDriverWait(driver, page_load_timeout).until(
@@ -52,6 +54,7 @@ def download_emendas(
         # Clicar no botão
         try:
             download_button.click()
+            print("Realizando o Download do Arquivo")
         except Exception:
             # Se falhar no HTML, tentar por JS
             driver.execute_script("arguments[0].click();", download_button)
@@ -64,3 +67,4 @@ def download_emendas(
     finally:
         # Finalizar o Browser
         driver.quit()
+        print("Finalizando o Crawler")

@@ -37,6 +37,7 @@ def move_recent_xlsx(download_dir, target_dir, time_window_minutes=1):
         except Exception as e:
             print(f"Error processing file {file_path.name}: {e}")
 
+
 def get_default_download_folder():
     """
     Retorna o diretório padrão de Downloads com base no sistema operacional.
